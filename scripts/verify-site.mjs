@@ -6,9 +6,9 @@ const publicOrigin =
 const formerOrigin =
   "https://sduppleganger-final.github.io/video-transcriber-translator-download";
 const downloadUrl =
-  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.2/Video.Transcriber.And.Translator.1.0.2.exe";
+  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.4/Video.Transcriber.And.Translator.1.0.4.exe";
 const checksum =
-  "447DD226CACBDBCCB00AEAB7B070CF7CC5A0929FA8C8A22738519E6BD8ABB068";
+  "F4E2ECB3EBE78EA140D072E7F42A57DE69A02A8CAE247CA3BFD9556E8DECCA81";
 
 const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const [icon, socialCard] = await Promise.all([
@@ -25,6 +25,12 @@ assert.ok(html.includes(checksum));
 assert.ok(html.includes("Transcribe"));
 assert.ok(html.includes("Translate"));
 assert.ok(html.includes("Split"));
+assert.ok(html.includes("Version 1.0.4"));
+assert.ok(html.includes("video or audio"));
+assert.ok(html.includes("WAV, MP3, OGG"));
+assert.ok(html.includes("bilingual English/Hebrew screen"));
+assert.ok(html.includes("3–5 minutes"));
+assert.ok(html.includes("preparation may repeat on later launches"));
 assert.ok(html.includes("infringes copyright"));
 assert.ok(html.includes("מפר זכויות יוצרים"));
 assert.ok(!html.includes("<script"));
