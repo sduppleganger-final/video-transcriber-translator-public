@@ -9,6 +9,14 @@ const downloadUrl =
   "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.4/Video.Transcriber.And.Translator.1.0.4.exe";
 const checksum =
   "F4E2ECB3EBE78EA140D072E7F42A57DE69A02A8CAE247CA3BFD9556E8DECCA81";
+const macAppleSiliconDownloadUrl =
+  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.3-mac/Video.Transcriber.And.Translator.1.0.3.mac-arm64.zip";
+const macIntelDownloadUrl =
+  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.3-mac/Video.Transcriber.And.Translator.1.0.3.mac-x64.zip";
+const macAppleSiliconChecksum =
+  "D0BDF403B28977B660231668E995CC6F0ECC83C58BB695693892F9DA3BB489F6";
+const macIntelChecksum =
+  "0B70928740029F007336C20AFE007C1854261A0B1F55DA41E8879219DC8D39CB";
 
 const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const [icon, socialCard] = await Promise.all([
@@ -22,15 +30,32 @@ assert.ok(html.includes(`${publicOrigin}/og.png`));
 assert.ok(!html.includes(formerOrigin));
 assert.ok(html.includes(downloadUrl));
 assert.ok(html.includes(checksum));
+assert.ok(html.includes(macAppleSiliconDownloadUrl));
+assert.ok(html.includes(macIntelDownloadUrl));
+assert.ok(html.includes(macAppleSiliconChecksum));
+assert.ok(html.includes(macIntelChecksum));
 assert.ok(html.includes("Transcribe"));
 assert.ok(html.includes("Translate"));
 assert.ok(html.includes("Split"));
-assert.ok(html.includes("Version 1.0.4"));
+assert.ok(html.includes("Windows 1.0.4"));
 assert.ok(html.includes("video or audio"));
 assert.ok(html.includes("WAV, MP3, OGG"));
 assert.ok(html.includes("bilingual English/Hebrew screen"));
 assert.ok(html.includes("3–5 minutes"));
 assert.ok(html.includes("preparation may repeat on later launches"));
+assert.ok(html.includes("Download for Mac"));
+assert.ok(html.includes("Download Apple Silicon"));
+assert.ok(html.includes("Download Intel Mac"));
+assert.ok(html.includes("MAC VERSION 1.0.3"));
+assert.ok(html.includes("About This Mac"));
+assert.ok(html.includes("Privacy &amp; Security"));
+assert.ok(html.includes("Open Anyway"));
+assert.ok(html.includes("not signed or notarized by Apple"));
+assert.ok(html.includes("אין להשבית את Gatekeeper"));
+assert.ok(html.includes("פרטיות ואבטחה"));
+assert.ok(html.includes("https://support.apple.com/en-us/102445"));
+assert.ok(html.includes("https://support.apple.com/en-us/116943"));
+assert.ok(!/xattr|spctl|sudo/.test(html));
 assert.ok(html.includes("infringes copyright"));
 assert.ok(html.includes("מפר זכויות יוצרים"));
 assert.ok(!html.includes("<script"));
