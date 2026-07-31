@@ -6,9 +6,9 @@ const publicOrigin =
 const formerOrigin =
   "https://sduppleganger-final.github.io/video-transcriber-translator-download";
 const downloadUrl =
-  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.6/Video.Transcriber.And.Translator.1.0.6.exe";
+  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.7/Video.Transcriber.And.Translator.1.0.7.exe";
 const checksum =
-  "32C993623D46370B25E3BD0E88ABDAA9FE089C89BE27E99B8603BA8F494230E7";
+  "0C4CA9549D9BCAB7A9B236FB41FD8E95879E7C5945BC8F2BBD8B856A9F2BC01B";
 const macAppleSiliconDownloadUrl =
   "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.3-mac/Video.Transcriber.And.Translator.1.0.3.mac-arm64.zip";
 const macIntelDownloadUrl =
@@ -37,12 +37,14 @@ assert.ok(html.includes(macIntelChecksum));
 assert.ok(html.includes("Transcribe"));
 assert.ok(html.includes("Translate"));
 assert.ok(html.includes("Split"));
-assert.ok(html.includes("Windows 1.0.6"));
+assert.ok(html.includes("Attach SRT"));
+assert.ok(html.includes("existing UTF-8 SRT file"));
+assert.ok(html.includes("Windows 1.0.7"));
 assert.ok(html.includes("Hebrew-optimized Ivrit.ai"));
 assert.ok(html.includes("separate verified 1.62 GB download"));
 assert.ok(html.includes("your media is never uploaded"));
 assert.ok(html.includes("DOCX and PDF transcripts"));
-assert.ok(html.includes("Mac 1.0.3 does not yet include the Ivrit.ai engine or DOCX/PDF"));
+assert.ok(html.includes("Mac 1.0.3 does not yet include SRT attachment, the Ivrit.ai"));
 assert.ok(html.includes("video or audio"));
 assert.ok(html.includes("WAV, MP3, OGG"));
 assert.ok(html.includes("bilingual English/Hebrew screen"));
