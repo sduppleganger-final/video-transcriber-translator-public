@@ -10,13 +10,13 @@ const downloadUrl =
 const checksum =
   "0C4CA9549D9BCAB7A9B236FB41FD8E95879E7C5945BC8F2BBD8B856A9F2BC01B";
 const macAppleSiliconDownloadUrl =
-  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.3-mac/Video.Transcriber.And.Translator.1.0.3.mac-arm64.zip";
+  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.7-mac/Video.Transcriber.And.Translator.1.0.7.mac-arm64.zip";
 const macIntelDownloadUrl =
-  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.3-mac/Video.Transcriber.And.Translator.1.0.3.mac-x64.zip";
+  "https://github.com/sduppleganger-final/video-transcriber-translator-download/releases/download/v1.0.7-mac/Video.Transcriber.And.Translator.1.0.7.mac-x64.zip";
 const macAppleSiliconChecksum =
-  "D0BDF403B28977B660231668E995CC6F0ECC83C58BB695693892F9DA3BB489F6";
+  "7F308DA083301184785D7D09741000B1B443E12393DB8A0907CC37C1240E34C1";
 const macIntelChecksum =
-  "0B70928740029F007336C20AFE007C1854261A0B1F55DA41E8879219DC8D39CB";
+  "9F473BBA8D138E7EA0C8900BE97226FD2DD2780ED9908DF2C7D1E6EE733660FE";
 
 const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const [icon, socialCard] = await Promise.all([
@@ -34,6 +34,9 @@ assert.ok(html.includes(macAppleSiliconDownloadUrl));
 assert.ok(html.includes(macIntelDownloadUrl));
 assert.ok(html.includes(macAppleSiliconChecksum));
 assert.ok(html.includes(macIntelChecksum));
+assert.ok(!html.includes("releases/download/v1.0.3-mac"));
+assert.ok(!html.includes("MAC VERSION 1.0.3"));
+assert.ok(!html.includes("QuickMT remains Windows-only"));
 assert.ok(html.includes("Transcribe"));
 assert.ok(html.includes("Translate"));
 assert.ok(html.includes("Split"));
@@ -44,7 +47,9 @@ assert.ok(html.includes("Hebrew-optimized Ivrit.ai"));
 assert.ok(html.includes("separate verified 1.62 GB download"));
 assert.ok(html.includes("your media is never uploaded"));
 assert.ok(html.includes("DOCX and PDF transcripts"));
-assert.ok(html.includes("Mac 1.0.3 does not yet include SRT attachment, the Ivrit.ai"));
+assert.ok(html.includes("Mac 1.0.7 now matches the Windows 1.0.7 feature set"));
+assert.ok(/Hy-MT and\s+QuickMT translation/.test(html));
+assert.ok(html.includes("גרסת Mac 1.0.7 כוללת כעת"));
 assert.ok(html.includes("video or audio"));
 assert.ok(html.includes("WAV, MP3, OGG"));
 assert.ok(html.includes("bilingual English/Hebrew screen"));
@@ -53,7 +58,7 @@ assert.ok(html.includes("preparation may repeat on later launches"));
 assert.ok(html.includes("Download for Mac"));
 assert.ok(html.includes("Download Apple Silicon"));
 assert.ok(html.includes("Download Intel Mac"));
-assert.ok(html.includes("MAC VERSION 1.0.3"));
+assert.ok(html.includes("MAC VERSION 1.0.7"));
 assert.ok(html.includes("About This Mac"));
 assert.ok(html.includes("Privacy &amp; Security"));
 assert.ok(html.includes("Open Anyway"));
